@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<style>
+    /* Importing Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6D83F2, #B450E7);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+.form-box {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    animation: fadeInUp 1s ease forwards;
+    position: relative;
+}
+
+.form-box:before, .form-box:after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+.form-box:before {
+    width: 200px;
+    height: 200px;
+    top: -100px;
+    left: -50px;
+}
+
+.form-box:after {
+    width: 300px;
+    height: 300px;
+    bottom: -150px;
+    right: -100px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 10px;
+    border: none;
+    border-bottom: 2px solid #adadad;
+    outline: none;
+    background: transparent;
+    color: #333;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #adadad;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: 0;
+    color: #6D83F2;
+    font-size: 12px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+.checkbox-group a {
+    color: #6D83F2;
+    text-decoration: none;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px 0;
+    background: linear-gradient(135deg, #6D83F2, #B450E7);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #B450E7, #6D83F2);
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media p {
+    font-size: 14px;
+    color: #666;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon i {
+    font-size: 18px;
+    color: #333;
+}
+
+
+.social-icon i:hover{
+    color: #fff;
+}
+
+.social-icon:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.1);
+    
+}
+
+/* Example hover colors for each platform */
+.google:hover {
+    background-color: #0f9fed;
+    color: #0f9fed;
+}
+
+.facebook:hover {
+    background-color: #0f9fed;
+    color: #0f9fed;
+}
+
+.github:hover {
+    background-color: #0f9fed;
+    color :#0f9fed;
+}
+
+.linkedin:hover {
+    background-color: #0f9fed;
+    color: #0f9fed;
+}
+
+
+.login-link {
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #6D83F2;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Navbar Styling */
+.bottom-navbar {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.bottom-navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.bottom-navbar ul li {
+    display: inline;
+}
+
+.bottom-navbar ul li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.bottom-navbar ul li a:hover {
+    color: #f1f1f1;
+    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
+}
+
+.bottom-navbar ul li a i {
+    margin-right: 8px;
+    font-size: 1.4rem;
+}
+
+/* Media Query for Mobile */
+@media screen and (max-width: 600px) {
+    .container {
+        margin-top: 50px;
+    }
+
+    .form-box {
+    width: 100%;
+    padding: 20px 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.bottom-navbar {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    position: fixed;
+    top: 0;
+    width: 87%;
+    left: 0;
+    padding: 10px 0;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.bottom-navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+
+    .bottom-navbar ul li a {
+    color: #fff;
+    font-size: 0.7rem;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+    h2 {
+        font-size: 24px; /* Smaller heading */
+    }
+
+    p {
+        font-size: 13px; /* Slightly smaller text */
+    }
+
+    .input-group input {
+        font-size: 14px; /* Adjust input font size */
+        padding: 8px; /* Adjust input padding */
+    }
+
+    .btn {
+        font-size: 14px; /* Smaller button text */
+        padding: 10px 0; /* Adjust button padding */
+    }
+
+    .social-icons {
+        gap: 8px; /* Reduce gap between social icons */
+    }
+
+    .social-icon {
+        width: 35px; /* Smaller icon size */
+        height: 35px;
+    }
+
+    .checkbox-group label {
+        font-size: 12px; /* Smaller text for terms and conditions */
+    }
+
+    .login-link a {
+        font-size: 13px; /* Smaller login link text */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Stack navigation items vertically on smaller screens */
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin-bottom: 10px;
+    }
+}
+
+
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beautiful Signup Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Other head content -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+</head>
+<body>
+    <nav class="bottom-navbar">
+        <ul class="nav-links">
+            <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/About"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="/Blog"><i class="fas fa-cog"></i> Blog</a></li>
+            <li><a href="/Courses"><i class="fas fa-envelope"></i> Courses</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="form-box">
+            <h2>Create Your Account</h2>
+            <p>Join us and explore the endless possibilities!</p>
+
+            <form>
+                <div class="input-group">
+                    <input type="text" required>
+                    <label for="name">Full Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" required>
+                    <label for="email">Email Address</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" required>
+                    <label for="password">Password</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" required>
+                    <label for="confirm-password">Confirm Password</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+
+            <div class="social-media">
+                <p>Or sign up with</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon google"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon github"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+                
+            </div>
+
+            <p class="login-link">Already have an account? <a href="#">Login here</a></p>
+        </div>
+    </div>
+
+
+    
+
+
+</body>
+</html>

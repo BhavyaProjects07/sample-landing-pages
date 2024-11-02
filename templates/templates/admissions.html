@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - DIT University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #004080;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url("C:/Users/Dell/OneDrive/Desktop/Whole python/college-website-peoject/static/Image/extra.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-section h1 {
+            font-size: 50px;
+            animation: fadeInDown 2s ease;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+
+        .section {
+            background: white;
+            width: 48%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .section h3 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: #004080;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .section .icon {
+            font-size: 24px;
+            color: #004080;
+            margin-right: 10px;
+        }
+
+        /* Extended Information Sections */
+        .extended-section {
+            width: 100%;
+            background: #fff;
+            padding: 40px 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .extended-section h3 {
+            font-size: 26px;
+            color: #004080;
+            text-align: center;
+        }
+
+        /* Timeline / Key Dates */
+        .timeline {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 20px;
+        }
+
+        .timeline li:before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background-color: #004080;
+            border-radius: 50%;
+        }
+
+        .timeline li:after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 20px;
+            width: 2px;
+            height: 100%;
+            background-color: #004080;
+        }
+
+        .timeline li:last-child:after {
+            display: none;
+        }
+
+        .timeline h4 {
+            margin-bottom: 5px;
+            font-size: 20px;
+            color: #004080;
+        }
+
+        /* Animated Admission Form */
+        .form-section {
+            background-color: #f2faff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .form-section h3 {
+            margin-bottom: 15px;
+            font-size: 26px;
+            color: #00796b;
+        }
+
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-section input, 
+        .form-section textarea, 
+        .form-section select {
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 2px solid #b2ebf2;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-section input[type="submit"] {
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+        }
+
+        .form-section input[type="submit"]:hover {
+            background-color: #003060;
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #004080;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Responsive Media Queries */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .section {
+                width: 100%;
+            }
+
+            .form-section {
+                width: 100%;
+            }
+
+            .timeline li {
+                padding-left: 20px;
+            }
+        }
+
+        /* Additional styles for the Key Dates Section */
+.timeline h4 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #004080;
+    font-weight: bold;
+}
+
+.timeline p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.extended-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #fff;
+    padding: 40px 20px;
+    margin: 30px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.extended-section h3 {
+    font-size: 26px;
+    color: #004080;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.extended-section p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => el.classList.add('fade-in'));
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">DIT University</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/Courses">Courses</a></li> 
+            <li><a href="/Admissions">Admissions</a></li>
+            <li><a href="/Blog">Blog</a></li>
+            <li><a href="/About">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Admissions at DIT University</h1>
+    </section>
+
+    <div class="container">
+        <!-- Admissions Process Section -->
+        <div class="section fade-in">
+            <h3><i class="icon fa fa-graduation-cap"></i> Admissions Process</h3>
+            <img src="C:\Users\Dell\OneDrive\Desktop\Whole python\college-website-peoject\static\Image\adm_process.jpg" alt="Admissions Process">
+            <p>At DIT University, our admissions process is streamlined to ensure a smooth experience. Begin your application today by filling out our online form and submitting the necessary documents.</p>
+        </div>
+
+        <!-- Eligibility Criteria Section -->
+        <div class="section fade-in">
+            <h3><i class="icon fa fa-check-circle"></i> Eligibility Criteria</h3>
+            <img src="C:\Users\Dell\OneDrive\Desktop\Whole python\college-website-peoject\static\Image\courses5.jpeg" alt="Eligibility Criteria">
+            <p>Students applying to DIT University must have completed their 12th standard with at least 50% aggregate. Additional entrance exams such as JEE Main may be required for specific courses.</p>
+        </div>
+
+
+                <!-- Key Dates Section -->
+                <div class="extended-section fade-in" style="display: flex; justify-content: space-between;">
+                    <div style="flex: 1;">
+                        <h3>Important Dates</h3>
+                        <ul class="timeline">
+                            <li>
+                                <h4>Application Opens</h4>
+                                <p>1st January 2024</p>
+                            </li>
+                            <li>
+                                <h4>Last Date to Apply</h4>
+                                <p>31st March 2024</p>
+                            </li>
+                            <li>
+                                <h4>Entrance Exam Date</h4>
+                                <p>15th April 2024</p>
+                            </li>
+                            <li>
+                                <h4>Results Announcement</h4>
+                                <p>30th April 2024</p>
+                            </li>
+                            <li>
+                                <h4>Admission Confirmation Deadline</h4>
+                                <p>15th May 2024</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; padding-left: 20px;">
+                        <h3>Why These Dates Matter</h3>
+                        <p>Understanding the admissions timeline is crucial for a smooth application process. Make sure to mark these important dates on your calendar to stay informed and ensure you complete your application on time. Missing any of these deadlines could affect your admission prospects.</p>
+                        <p>We recommend preparing your documents early and regularly checking your email for updates regarding the entrance exams and interviews. Stay proactive, and don’t hesitate to reach out to our admissions office if you have any questions!</p>
+                    </div>
+                </div>
+        
+
+        <!-- Frequently Asked Questions Section -->
+        <div class="extended-section fade-in">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq">
+                <h4>1. What are the courses offered at DIT University?</h4>
+                <p>DIT University offers a wide range of undergraduate and postgraduate courses in engineering, management, arts, and sciences. For a complete list of courses, please visit our courses section.</p>
+                
+                <h4>2. Is there any scholarship available for students?</h4>
+                <p>Yes, DIT University offers various scholarships based on merit and financial need. Detailed information can be found on our scholarships page.</p>
+                
+                <h4>3. How can I contact the admissions office?</h4>
+                <p>You can reach the admissions office via the contact form on our website, or by calling our helpline at +123 456 7890.</p>
+            </div>
+        </div>
+
+        <!-- Contact Us Section -->
+        <div class="form-section fade-in">
+            <h3>Contact Us</h3>
+            <form action="#" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Send Message">
+            </form>
+        </div>
+    </div>
+            <!-- Campus Life Section -->
+            <div class="extended-section fade-in">
+                <h3>Campus Life</h3>
+                <p>At DIT University, we believe that education extends beyond the classroom. Our vibrant campus life is filled with various extracurricular activities, clubs, and events that cater to a diverse range of interests. Whether you're into sports, arts, or technology, there's something for everyone.</p>
+                <img src="C:\Users\Dell\OneDrive\Desktop\Whole python\college-website-peoject\static\Image\dit_banner.webp" alt="Campus Life" />
+                <p>Join clubs, participate in cultural festivals, and enjoy our state-of-the-art facilities. Our students regularly engage in workshops, seminars, and networking events, enhancing their learning experience.</p>
+            </div>
+    
+            <!-- Student Testimonials Section -->
+            <div class="extended-section fade-in">
+                <h3>What Our Students Say</h3>
+                <div class="testimonial">
+                    <h4>"The best decision I ever made!"</h4>
+                    <p>- Alex Kumar, B.Tech Student</p>
+                    <p>“DIT University has provided me with not only an excellent education but also a chance to grow personally and professionally. The faculty is supportive, and the campus is full of opportunities.”</p>
+                </div>
+                <div class="testimonial">
+                    <h4>"A home away from home!"</h4>
+                    <p>- Priya Singh, MBA Student</p>
+                    <p>“The community at DIT is incredibly welcoming. I’ve made lifelong friends and learned so much during my time here. The programs are well-structured and designed to prepare us for real-world challenges.”</p>
+                </div>
+                <div class="testimonial">
+                    <h4>"Exceptional learning experience!"</h4>
+                    <p>- Rahul Mehta, M.Sc. Student</p>
+                    <p>“The hands-on experience I gained during my courses was invaluable. DIT's emphasis on practical learning and internships has given me the confidence to enter the job market.”</p>
+                </div>
+            </div>
+    
+            <!-- Resources Section -->
+            <div class="extended-section fade-in">
+                <h3>Resources for Students</h3>
+                <p>We provide a variety of resources to support our students throughout their academic journey:</p>
+                <ul>
+                    <li><strong>Library Services:</strong> Our library offers extensive collections, online databases, and study spaces to aid your research and studies.</li>
+                    <li><strong>Career Services:</strong> The career services team is here to assist with internships, job placements, and resume building.</li>
+                    <li><strong>Counseling Services:</strong> Mental health support is available to all students through our counseling center.</li>
+                    <li><strong>Technical Support:</strong> We offer tech support for all students to ensure you have the resources you need for your studies.</li>
+                    <li><strong>Health and Wellness:</strong> Our health center provides medical services and wellness programs to keep our students healthy.</li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 DIT University. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Feedback</a>
+            </div>
+        </footer>
+    </body>
+    </html>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DIT University. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Feedback</a>
+        </div>
+    </footer>
+</body>
+</html>
+

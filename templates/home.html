@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Fan Zone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheffield United FC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+
+        /* Utility classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #00308F;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid #FFD700;
+        }
+
+        .btn:hover {
+            background-color: #00308F;
+            color: #FFD700;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #00308F;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #FFD700;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+       
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(42, 42, 42, 0.758);
+        }
+
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 3rem;
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            border: 2px solid #FFD700;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Decorative elements */
+        
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-out;
+        }
+        .animate-slideIn {
+            animation: slideIn 0.5s ease-out;
+        }
+        .stagger-animation > * {
+            opacity: 0;
+            animation: slideIn 0.5s ease-out forwards;
+        }
+        .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fadeIn, .animate-slideIn, .stagger-animation > * {
+                animation: none !important;
+                opacity: 1 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+   
+    <body class="bg-black text-white">
+        <header class="fixed top-0 z-50 w-full bg-black/90 px-4 py-3">
+            <div class="mx-auto flex max-w-7xl items-center justify-between">
+                <div class="flex items-center gap-8">
+                    <a href="/" class="text-white">
+                        <img src="/static/Image/santiago.jpeg" alt="Logo" class="h-10 w-10">
+                    </a>
+                    <nav class="hidden md:block">
+                        <ul class="flex gap-6 text-sm font-medium">
+                            <li><a href="#" class="hover:text-red-500">NEWS</a></li>
+                            <li><a href="#" class="hover:text-red-500">SUTV</a></li>
+                            <li><a href="#" class="hover:text-red-500">MATCHES</a></li>
+                            <li><a href="#" class="hover:text-red-500">TEAMS</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="flex items-center gap-4">
+                    <nav class="hidden md:block">
+                        <ul class="flex gap-6 text-sm font-medium">
+                            <li><a href="#" class="hover:text-red-500">TICKETS</a></li>
+                            <li><a href="#" class="hover:text-red-500">SHOP</a></li>
+                            <li><a href="#" class="hover:text-red-500">LOGIN</a></li>
+                        </ul>
+                    </nav>
+                    <button aria-label="Search" class="text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                    <button aria-label="Menu" class="md:hidden text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+    
+        <main>
+            <section class="relative h-screen">
+                <img src="/static/Image/goats.jpg?height=1000&width=1920" alt="Hero background" class="h-full w-full object-cover brightness-50">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                    <div class="mx-auto max-w-7xl px-4 pt-32">
+                        <h1 class="text-5xl font-bold tracking-tight">THE OG HOME OF FOOTBALL</h1>
+                        
+                        <div class="mt-auto space-y-4 pt-48 stagger-animation">
+                            <a href="#" class="inline-block mt-4 px-6 py-2 border border-white bg-transparent text-white hover:bg-white hover:text-black transition-colors duration-300">
+                                JOIN US
+                            </a>
+                            <div class="flex gap-2 text-sm font-medium text-gray-300">
+                                <span>5 mins ago</span>
+                                <span>•</span>
+                                <span>Football</span>
+                            </div>
+                            <h1 class="text-5xl font-bold tracking-tight">SUMMER CALL UPS</h1>
+                            <p class="max-w-2xl text-lg text-gray-300">
+                                Several United players have been called up by their respective countries ahead of some summer international fixtures.
+                            </p>
+                            <a href="#" class="inline-block mt-4 px-6 py-2 border border-white bg-transparent text-white hover:bg-white hover:text-black transition-colors duration-300">
+                                CONTINUE READING
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="bg-black px-4 py-12">
+                <div class="mx-auto max-w-7xl">
+                    <h2 class="mb-8 text-3xl font-bold">NEWS</h2>
+                    <div class="grid gap-6 md:grid-cols-3">
+                        <a href="#" class="group relative overflow-hidden rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="News 1" class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                                <div class="absolute bottom-0 p-4">
+                                    <h3 class="text-xl font-bold">Latest News Title</h3>
+                                    <p class="text-sm text-gray-300">Read more about our latest updates</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="group relative overflow-hidden rounded-lg">
+                            <img src="/static/Image/elclassico2.webp" alt="News 2" class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                                <div class="absolute bottom-0 p-4">
+                                    <h3 class="text-xl font-bold">Team Update</h3>
+                                    <p class="text-sm text-gray-300">Get the latest on our squad</p>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="group relative overflow-hidden rounded-lg">
+                            <img src="/static/Image/preview.jpg" alt="News 3" class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                                <div class="absolute bottom-0 p-4">
+                                    <h3 class="text-xl font-bold">Match Preview</h3>
+                                    <p class="text-sm text-gray-300">Prepare for our upcoming fixture</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- New Football News Section -->
+            <section class="bg-gray-900 px-4 py-16">
+                <div class="mx-auto max-w-7xl">
+                    <h2 class="mb-8 text-3xl font-bold flex items-center animate-slideIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                            <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                        </svg>
+                        Latest Football News
+                    </h2>
+                    <div class="grid gap-8 md:grid-cols-2 stagger-animation">
+                        <div class="bg-black rounded-lg p-6 shadow-lg">
+                            <h3 class="text-xl font-semibold mb-4">Transfer Rumors Heat Up</h3>
+                            <p class="text-gray-300 mb-4">
+                                As the summer transfer window approaches, speculation is rife about potential moves for top players. 
+                                Several clubs are reportedly in talks with star forwards and midfielders, looking to strengthen their squads for the upcoming season. 
+                                Insiders suggest that some surprising deals might be in the works, with a few unexpected names potentially changing clubs.
+                            </p>
+                            <a href="#" class="text-red-500 hover:text-red-400">Read more →</a>
+                        </div>
+                        <div class="bg-black rounded-lg p-6 shadow-lg">
+                            <h3 class="text-xl font-semibold mb-4">Champions League Final Preview</h3>
+                            <p class="text-gray-300 mb-4">
+                                The stage is set for an epic showdown in the Champions League final. 
+                                Both teams have overcome tough opposition to reach this point, and analysts are divided on who will lift the trophy. 
+                                Key players to watch include the prolific strikers on both sides, as well as the midfield maestros who could dictate the pace of the game.
+                            </p>
+                            <a href="#" class="text-red-500 hover:text-red-400">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Latest Scores Section -->
+            <section class="bg-black px-4 py-16">
+                <div class="mx-auto max-w-7xl">
+                    <h2 class="mb-8 text-3xl font-bold flex items-center animate-slideIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" />
+                        </svg>
+                        Latest Scores
+                    </h2>
+                    <div class="grid gap-4 md:grid-cols-3 animate-slideIn">
+                        <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold">Real madrid</span>
+                                <span class="text-2xl font-bold">5 - 2</span>
+                                <span class="font-semibold">Dortmund</span>
+                            </div>
+                            <p class="text-sm text-gray-400">Premier League • Final</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold">Barcelona</span>
+                                <span class="text-2xl font-bold">4 - 0</span>
+                                <span class="font-semibold">Real Madrid</span>
+                            </div>
+                            <p class="text-sm text-gray-400">La Liga • Final</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold">Bayern</span>
+                                <span class="text-2xl font-bold">1 - 4</span>
+                                <span class="font-semibold">Barcelona</span>
+                            </div>
+                            <p class="text-sm text-gray-400">Bundesliga • Final</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- TOTY and Ballon d'Or News Section -->
+            <section class="bg-gray-900 px-4 py-16">
+                <div class="mx-auto max-w-7xl">
+                    <h2 class="mb-8 text-3xl font-bold flex items-center animate-slideIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        TOTY and Ballon d'Or News
+                    </h2>
+                    <div class="grid gap-8 md:grid-cols-2 stagger-animation">
+                        <div class="bg-black rounded-lg p-6 shadow-lg">
+                            <h3 class="text-xl font-semibold mb-4">Team of the Year Predictions</h3>
+                            <p class="text-gray-300 mb-4">
+                                As the football season draws to a close, speculation about the Team of the Year (TOTY) is heating up. 
+                                Pundits and fans alike are debating which players deserve a spot in this prestigious lineup. 
+                                Key contenders include the top goal scorers from various leagues, as well as defenders who have been instrumental in their team's success. 
+                                The midfield selection is particularly competitive this year, with several world-class players vying for limited spots.
+                            </p>
+                            <a href="#" class="text-red-500 hover:text-red-400">Read full predictions →</a>
+                        </div>
+                        <div class="bg-black rounded-lg p-6 shadow-lg">
+                            <h3 class="text-xl font-semibold mb-4">Ballon d'Or Race Heats Up</h3>
+                            <p class="text-gray-300 mb-4">
+                                The race for the Ballon d'Or, football's most prestigious individual award, is intensifying. 
+                                This year's competition is particularly fierce, with several players putting in exceptional performances throughout the season. 
+                                The frontrunners include last year's winner, who has maintained their stellar form, and a young talent who has taken the football world by storm. 
+                                Experts are also considering the impact of international tournaments on the final decision.
+                            </p>
+                            <a href="#" class="text-red-500 hover:text-red-400">Explore top contenders →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    
+
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const animateOnScroll = (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-slideIn');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                };
+    
+                const observer = new IntersectionObserver(animateOnScroll, {
+                    root: null,
+                    threshold: 0.1
+                });
+    
+                document.querySelectorAll('h1, h2, h3, p').forEach(el => {
+                    observer.observe(el);
+                });
+            });
+        </script>
+    </body>
+
+    
+
+    <section class="bg-gradient-to-br from-gray-900 to-black text-white font-sans min-h-screen">
+        <div class="container mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+                Latest Football Matches
+            </h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Match 1: Barcelona vs Real Madrid -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 flex justify-between items-center">
+                        <span class="text-sm font-semibold">La Liga</span>
+                        <span class="text-sm">28 Oct 2023</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="text-center">
+                                <img src="https://placekitten.com/50/50" alt="Barcelona" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Barcelona</span>
+                            </div>
+                            <div class="text-3xl font-bold">3 - 2</div>
+                            <div class="text-center">
+                                <img src="https://placekitten.com/51/51" alt="Real Madrid" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Real Madrid</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mt-4">
+                            <h3 class="text-sm font-semibold mb-2">Goal Scorers:</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>⚽ Lewandowski (BAR) 23'</li>
+                                <li>⚽ Fati (BAR) 45'</li>
+                                <li>⚽ Vinicius Jr. (RMA) 50'</li>
+                                <li>⚽ Gavi (BAR) 70'</li>
+                                <li>⚽ Rodrygo (RMA) 85'</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            <span class="text-sm font-semibold">MOTM: Gavi (Barcelona)</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Match 2: Bayern Munich vs Barcelona -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-r from-red-600 to-yellow-600 px-4 py-2 flex justify-between items-center">
+                        <span class="text-sm font-semibold">Champions League</span>
+                        <span class="text-sm">24 Oct 2023</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="text-center">
+                                <img src="https://placekitten.com/52/52" alt="Bayern Munich" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Bayern Munich</span>
+                            </div>
+                            <div class="text-3xl font-bold">2 - 2</div>
+                            <div class="text-center">
+                                <img src="https://placekitten.com/50/50" alt="Barcelona" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Barcelona</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mt-4">
+                            <h3 class="text-sm font-semibold mb-2">Goal Scorers:</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>⚽ Müller (BAY) 15'</li>
+                                <li>⚽ Lewandowski (BAR) 30'</li>
+                                <li>⚽ Pedri (BAR) 60'</li>
+                                <li>⚽ Coman (BAY) 88'</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            <span class="text-sm font-semibold">MOTM: Lewandowski (Barcelona)</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Match 3: Manchester City vs Liverpool -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-r from-blue-500 to-red-500 px-4 py-2 flex justify-between items-center">
+                        <span class="text-sm font-semibold">Premier League</span>
+                        <span class="text-sm">25 Oct 2023</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="text-center">
+                                <img src="https://placekitten.com/53/53" alt="Manchester City" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Manchester City</span>
+                            </div>
+                            <div class="text-3xl font-bold">1 - 1</div>
+                            <div class="text-center">
+                                <img src="https://placekitten.com/54/54" alt="Liverpool" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Liverpool</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mt-4">
+                            <h3 class="text-sm font-semibold mb-2">Goal Scorers:</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>⚽ Haaland (MCI) 27'</li>
+                                <li>⚽ Salah (LIV) 80'</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            <span class="text-sm font-semibold">MOTM: De Bruyne (Manchester City)</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Match 4: PSG vs AC Milan -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-r from-blue-600 to-red-600 px-4 py-2 flex justify-between items-center">
+                        <span class="text-sm font-semibold">Champions League</span>
+                        <span class="text-sm">25 Oct 2023</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="text-center">
+                                <img src="https://placekitten.com/55/55" alt="PSG" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">PSG</span>
+                            </div>
+                            <div class="text-3xl font-bold">3 - 0</div>
+                            <div class="text-center">
+                                <img src="https://placekitten.com/56/56" alt="AC Milan" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">AC Milan</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mt-4">
+                            <h3 class="text-sm font-semibold mb-2">Goal Scorers:</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>⚽ Mbappé (PSG) 32'</li>
+                                <li>⚽ Mbappé (PSG) 45'</li>
+                                <li>⚽ Kolo Muani (PSG) 76'</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            <span class="text-sm font-semibold">MOTM: Mbappé (PSG)</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Match 5: Arsenal vs Sevilla -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-r from-red-500 to-white px-4 py-2 flex justify-between items-center">
+                        <span class="text-sm font-semibold">Champions League</span>
+                        <span class="text-sm">24 Oct 2023</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="text-center">
+                                <img src="https://placekitten.com/57/57" alt="Arsenal" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Arsenal</span>
+                            </div>
+                            <div class="text-3xl font-bold">2 - 0</div>
+                            <div class="text-center">
+                                <img src="https://placekitten.com/58/58" alt="Sevilla" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Sevilla</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mt-4">
+                            <h3 class="text-sm font-semibold mb-2">Goal Scorers:</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>⚽ Saka (ARS) 18'</li>
+                                <li>⚽ Martinelli (ARS) 65'</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            <span class="text-sm font-semibold">MOTM: Saka (Arsenal)</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Match 6: Napoli vs AC Milan -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-r from-blue-500 to-red-500 px-4 py-2 flex justify-between items-center">
+                        <span class="text-sm font-semibold">Serie A</span>
+                        <span class="text-sm">29 Oct 2023</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="text-center">
+                                <img src="https://placekitten.com/59/59" alt="Napoli" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Napoli</span>
+                            </div>
+                            <div class="text-3xl font-bold">2 - 2</div>
+                            <div class="text-center">
+                                <img src="https://placekitten.com/56/56" alt="AC Milan" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">AC Milan</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mt-4">
+                            <h3 class="text-sm font-semibold mb-2">Goal Scorers:</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>⚽ Politano (NAP) 22'</li>
+                                <li>⚽ Giroud (MIL) 42'</li>
+                                <li>⚽ Raspadori (NAP) 63'</li>
+                                <li>⚽ Calabria (MIL) 88'</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            <span class="text-sm font-semibold">MOTM: Politano (Napoli)</span>
+                        
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Match 7: Borussia Dortmund vs Newcastle -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-r from-yellow-400 to-black px-4 py-2 flex justify-between items-center">
+                        <span class="text-sm font-semibold">Champions League</span>
+                        <span class="text-sm">25 Oct 2023</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="text-center">
+                                <img src="https://placekitten.com/60/60" alt="Borussia Dortmund" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Borussia Dortmund</span>
+                            </div>
+                            <div class="text-3xl font-bold">1 - 0</div>
+                            <div class="text-center">
+                                <img src="https://placekitten.com/61/61" alt="Newcastle" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Newcastle</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mt-4">
+                            <h3 class="text-sm font-semibold mb-2">Goal Scorers:</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>⚽ Füllkrug (BVB) 67'</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            <span class="text-sm font-semibold">MOTM: Füllkrug (Borussia Dortmund)</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Match 8: Inter Milan vs Roma -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-r from-blue-600 to-black px-4 py-2 flex justify-between items-center">
+                        <span class="text-sm font-semibold">Serie A</span>
+                        <span class="text-sm">29 Oct 2023</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="text-center">
+                                <img src="https://placekitten.com/62/62" alt="Inter Milan" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Inter Milan</span>
+                            </div>
+                            <div class="text-3xl font-bold">1 - 0</div>
+                            <div class="text-center">
+                                <img src="https://placekitten.com/63/63" alt="Roma" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Roma</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mt-4">
+                            <h3 class="text-sm font-semibold mb-2">Goal Scorers:</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>⚽ Thuram (INT) 81'</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            <span class="text-sm font-semibold">MOTM: Thuram (Inter Milan)</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Match 9: Atletico Madrid vs Alaves -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-r from-red-600 to-white px-4 py-2 flex justify-between items-center">
+                        <span class="text-sm font-semibold">La Liga</span>
+                        <span class="text-sm">29 Oct 2023</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="text-center">
+                                <img src="https://placekitten.com/64/64" alt="Atletico Madrid" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Atletico Madrid</span>
+                            </div>
+                            <div class="text-3xl font-bold">2 - 1</div>
+                            <div class="text-center">
+                                <img src="https://placekitten.com/65/65" alt="Alaves" class="w-12 h-12 rounded-full mx-auto mb-2">
+                                <span class="font-semibold">Alaves</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mt-4">
+                            <h3 class="text-sm font-semibold mb-2">Goal Scorers:</h3>
+                            <ul class="text-sm space-y-1">
+                                <li>⚽ Riquelme (ATM) 26'</li>
+                                <li>⚽ Guridi (ALA) 50'</li>
+                                <li>⚽ Morata (ATM) 72'</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            <span class="text-sm font-semibold">MOTM: Morata (Atletico Madrid)</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Match 10: RB Leipzig vs Crvena Zvezda -->
+                
+        </div>
+    
+        <div class="fixed bottom-0 left-0 w-full bg-gradient-to-t from-gray-900 to-transparent h-20 pointer-events-none"></div>
+        <div class="fixed top-0 left-0 w-full bg-gradient-to-b from-gray-900 to-transparent h-20 pointer-events-none"></div>
+    </section>
+    <!-- Yearly Winners Section -->
+<section id="yearly-winners" class="bg-gray-900 px-4 py-20">
+    <div class="mx-auto max-w-7xl">
+        <h2 class="text-4xl font-bold mb-8 text-center animate-slideIn">Ballon d'Or 2023</h2>
+        <div class="grid md:grid-cols-2 gap-8 stagger-animation">
+            <div class="bg-black rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Winner: Lionel Messi</h3>
+                <div class="flex items-center mb-4">
+                    <img src="/static/Image/leomessi.webp?height=100&width=100" alt="Lionel Messi" class="w-20 h-20 rounded-full mr-4">
+                    <div>
+                        <p class="text-xl font-bold">Lionel Messi</p>
+                        <p class="text-gray-400">Argentina / Inter Miami CF</p>
+                    </div>
+                </div>
+                <h4 class="text-xl font-semibold mb-2">Key Achievements:</h4>
+                <ul class="list-disc list-inside text-gray-300 mb-4">
+                    <li>FIFA World Cup Winner with Argentina</li>
+                    <li>World Cup Golden Ball (Best Player)</li>
+                    <li>21 goals and 20 assists for PSG in all competitions</li>
+                    <li>Ligue 1 Champion with PSG</li>
+                </ul>
+                <a href="#" class="text-yellow-400 hover:underline">Full winner details →</a>
+            </div>
+            <div class="bg-black rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Top Nominees</h3>
+                <img src="/static/Image/ronaldo.jpg" alt="Lionel Messi" class="w-20 h-20 rounded-full mr-4">
+                <ol class="space-y-2">
+                    <li class="flex justify-between items-center">
+                        <span>1. Lionel Messi</span>
+                        <span class="text-yellow-400">Winner</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>2. Erling Haaland</span>
+                        <span class="text-gray-400">Manchester City</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>3. Kylian Mbappé</span>
+                        <span class="text-gray-400">Paris Saint-Germain</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>4. Kevin De Bruyne</span>
+                        <span class="text-gray-400">Manchester City</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>5. Rodri</span>
+                        <span class="text-gray-400">Manchester City</span>
+                    </li>
+                </ol>
+                <a href="#" class="text-yellow-400 hover:underline mt-4 inline-block">View all nominees →</a>
+            </div>
+        </div>
+        <div class="mt-8 bg-black rounded-lg p-6 shadow-lg stagger-animation">
+            <h3 class="text-2xl font-semibold mb-4">Voting Breakdown</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b border-gray-700">
+                            <th class="py-2 px-4">Rank</th>
+                            <th class="py-2 px-4">Player</th>
+                            <th class="py-2 px-4">Points</th>
+                            <th class="py-2 px-4">First Place Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4">1</td>
+                            <td class="py-2 px-4">Lionel Messi</td>
+                            <td class="py-2 px-4">462</td>
+                            <td class="py-2 px-4">87</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4">2</td>
+                            <td class="py-2 px-4">Erling Haaland</td>
+                            <td class="py-2 px-4">357</td>
+                            <td class="py-2 px-4">55</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4">3</td>
+                            <td class="py-2 px-4">Kylian Mbappé</td>
+                            <td class="py-2 px-4">270</td>
+                            <td class="py-2 px-4">24</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Historical Winners & Stats Section -->
+<section id="historical-winners" class="bg-black px-4 py-20">
+    <div class="mx-auto max-w-7xl">
+        <h2 class="text-4xl font-bold mb-8 text-center animate-slideIn">Historical Winners & Stats</h2>
+        <div class="grid md:grid-cols-2 gap-8 stagger-animation">
+            <div class="bg-gray-900 rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Winners Timeline</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span>2023</span>
+                        <span class="font-semibold">Lionel Messi</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2022</span>
+                        <span class="font-semibold">Karim Benzema</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2021</span>
+                        <span class="font-semibold">Lionel Messi</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2020</span>
+                        <span class="font-semibold">Not Awarded</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2019</span>
+                        <span class="font-semibold">Lionel Messi</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2018</span>
+                        <span class="font-semibold">Luka modric</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2017</span>
+                        <span class="font-semibold">Cristiano Ronaldo</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2016</span>
+                        <span class="font-semibold">Cristiano Ronaldo</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2015</span>
+                        <span class="font-semibold">Lionel Messi</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2014</span>
+                        <span class="font-semibold">Cristiano Ronaldo</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>2013</span>
+                        <span class="font-semibold">Cristiano Ronaldo</span>
+                    </div>
+                </div>
+                <a href="#" class="text-yellow-400 hover:underline mt-4 inline-block">View full timeline →</a>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Top Winners</h3>
+                <ol class="space-y-2">
+                    <li class="flex justify-between items-center">
+                        <span>1. Lionel Messi</span>
+                        <span class="text-yellow-400">8 wins</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>2. Cristiano Ronaldo</span>
+                        <span class="text-yellow-400">5 wins</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>3. Johan Cruyff</span>
+                        <span class="text-yellow-400">3 wins</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>3. Michel Platini</span>
+                        <span class="text-yellow-400">3 wins</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>3. Marco van Basten</span>
+                        <span class="text-yellow-400">3 wins</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="mt-8 bg-gray-900 rounded-lg p-6 shadow-lg stagger-animation">
+            <h3 class="text-2xl font-semibold mb-4">Notable Records</h3>
+            <ul class="grid md:grid-cols-2 gap-4">
+                <li class="bg-black rounded p-4">
+                    <span class="font-semibold">Most Goals in history:</span>Cristiano Ronaldo (907)
+                </li>
+                <li class="bg-black rounded p-4">
+                    <span class="font-semibold">Most Assists:</span> Lionel Messi (327)
+                </li>
+                <li class="bg-black rounded p-4">
+                    <span class="font-semibold">Most Hattriks:</span> Cristiano Ronaldo (45)
+                </li>
+                <li class="bg-black rounded p-4">
+                    <span class="font-semibold">Most International G/A :</span> Cristiano Ronaldo (289 G/A)
+                </li>
+                <li class="bg-black rounded p-4">
+                    <span class="font-semibold">Most Wins:</span> Lionel Messi (8)
+                </li>
+                <li class="bg-black rounded p-4">
+                    <span class="font-semibold">Youngest Winner:</span> Ronaldo Nazário (1997, age 21)
+                </li>
+                <li class="bg-black rounded p-4">
+                    <span class="font-semibold">Oldest Winner:</span> Stanley Matthews (1956, age 41)
+                </li>
+                <li class="bg-black rounded p-4">
+                    <span class="font-semibold">First Non-European Winner:</span> George Weah (1995)
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Notable Moments Section -->
+<section id="notable-moments" class="bg-gray-900 px-4 py-20">
+    <div class="mx-auto max-w-7xl">
+        <h2 class="text-4xl font-bold mb-8 text-center animate-slideIn">Notable Moments in Ballon d'Or History</h2>
+        <div class="grid md:grid-cols-3 gap-8 stagger-animation">
+            <div class="bg-black rounded-lg overflow-hidden shadow-lg">
+                <img src="/static/Image/george_weah.jpeg" alt="George Weah" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2">George Weah's Historic Win (1995)</h3>
+                    <p class="text-gray-300 mb-4">First African player to win the Ballon d'Or, marking a significant moment in football history.</p>
+                    <a href="#" class="text-yellow-400 hover:underline">Read full story →</a>
+                </div>
+            </div>
+            <div class="bg-black rounded-lg overflow-hidden shadow-lg">
+                <img src="/static/Image/2023_ballondor.jpg" alt="Lionel Messi" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2">Messi's Record 8th Win (2023)</h3>
+                    <p class="text-gray-300 mb-4">Lionel Messi extends his record with an unprecedented 8th Ballon d'Or win.</p>
+                    <a href="#" class="text-yellow-400 hover:underline">Explore the achievement →</a>
+                </div>
+            </div>
+            <div class="bg-black rounded-lg overflow-hidden shadow-lg">
+                <img src="/static/Image/2010.jpg" alt="Controversial Decision" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2">2010 Controversy</h3>
+                    <p class="text-gray-300 mb-4">The debate surrounding Wesley Sneijder's exclusion from the top three despite his treble-winning season.</p>
+                    <a href="#" class="text-yellow-400 hover:underline">Dive into the controversy →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Top Performances Section -->
+<section id="top-performances" class="bg-black px-4 py-20">
+    <div class="mx-auto max-w-7xl">
+        <h2 class="text-4xl font-bold mb-8 text-center animate-slideIn">Top Performances of 2023</h2>
+        <div class="grid md:grid-cols-2 gap-8 stagger-animation">
+            <div class="bg-gray-900 rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Lionel Messi's Best Goals</h3>
+                <ul class="space-y-4">
+                    <li>
+                        <h4 class="font-semibold">World Cup Final vs France</h4>
+                        <p class="text-gray-300">A crucial goal in extra time, showcasing Messi's ability to perform under pressure.</p>
+                    </li>
+                    <li>
+                        <h4 class="font-semibold">Free-kick vs Panama</h4>
+                        <p class="text-gray-300">A stunning free-kick that curled into the top corner, demonstrating Messi's set-piece expertise.</p>
+                    </li>
+                </ul>
+                <a href="#" class="text-yellow-400 hover:underline mt-4 inline-block">Watch goal highlights →</a>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Season Statistics</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-black rounded p-4 text-center">
+                        <span class="block text-3xl font-bold text-yellow-400">21</span>
+                        <span class="text-sm">Goals</span>
+                    </div>
+                    <div class="bg-black rounded p-4 text-center">
+                        <span class="block text-3xl font-bold text-yellow-400">20</span>
+                        <span class="text-sm">Assists</span>
+                    </div>
+                    <div class="bg-black rounded p-4 text-center">
+                        <span class="block text-3xl font-bold text-yellow-400">7</span>
+                        <span class="text-sm">World Cup Goals</span>
+                    </div>
+                    <div class="bg-black rounded p-4 text-center">
+                        <span class="block text-3xl font-bold text-yellow-400">3</span>
+                        <span class="text-sm">World Cup Assists</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Features Section -->
+<section id="interactive-features" class="bg-gray-900 px-4 py-20">
+    <div class="mx-auto max-w-7xl">
+        <h2 class="text-4xl font-bold mb-8 text-center animate-slideIn">Interactive Features</h2>
+        <div class="grid md:grid-cols-3 gap-8 stagger-animation">
+            <div class="bg-black rounded-lg p-6  shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Fan Voting</h3>
+                <p class="text-gray-300 mb-4">Cast your vote for who you think deserves the next Ballon d'Or!</p>
+                <a href="#" class="inline-block px-6 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-300 transition-colors">
+                    Vote Now
+                </a>
+            </div>
+            <div class="bg-black rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Compare Players</h3>
+                <p class="text-gray-300 mb-4">Compare stats and achievements of Ballon d'Or winners and nominees.</p>
+                <a href="#" class="inline-block px-6 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-300 transition-colors">
+                    Start Comparison
+                </a>
+            </div>
+            <div class="bg-black rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Ballon d'Or Quiz</h3>
+                <p class="text-gray-300 mb-4">Test your knowledge of Ballon d'Or history with our interactive quiz!</p>
+                <a href="#" class="inline-block px-6 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-300 transition-colors">
+                    Take the Quiz
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="bg-black px-4 py-20">
+    <div class="mx-auto max-w-7xl">
+        <h2 class="text-4xl font-bold mb-8 text-center animate-slideIn">Gallery</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 stagger-animation">
+            <img src="/static/Image/rodri.jpg" alt="Ballon d'Or Ceremony" class="w-full h-40 object-cover rounded-lg">
+            <img src="/static/Image/calma.webp" alt="Winner Celebration" class="w-full h-40 object-cover rounded-lg">
+            <img src="/static/Image/worldcup.png" alt="Historic Moment" class="w-full h-40 object-cover rounded-lg">
+            <img src="/static/Image/leomessi.webp?height=300&width=300" alt="Trophy Close-up" class="w-full h-40 object-cover rounded-lg">
+        </div>
+        <div class="text-center mt-8">
+            <a href="#" class="inline-block px-6 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-300 transition-colors">View Full Gallery</a>
+        </div>
+    </div>
+</section>
+
+<!-- News and Articles Section -->
+<section id="news" class="bg-gray-900 px-4 py-20">
+    <div class="mx-auto max-w-7xl">
+        <h2 class="text-4xl font-bold mb-8 text-center animate-slideIn">Latest News & Articles</h2>
+        <div class="grid md:grid-cols-3 gap-8 stagger-animation">
+            <div class="bg-black rounded-lg overflow-hidden shadow-lg">
+                <img src="/static/Image/2024.webp?height=200&width=400" alt="News 1" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2">2024 Ballon d'Or: Early Favorites</h3>
+                    <p class="text-gray-300 mb-4">Experts weigh in on potential frontrunners for next year's award.</p>
+                    <a href="#" class="text-yellow-400 hover:underline">Read article →</a>
+                </div>
+            </div>
+            <div class="bg-black rounded-lg overflow-hidden shadow-lg">
+                <img src="/static/Image/zidane.jpeg" alt="News 2" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2">Interview: Zidane on Ballon d'Or Legacy</h3>
+                    <p class="text-gray-300 mb-4">The French legend reflects on his Ballon d'Or win and the award's significance.</p>
+                    <a href="#" class="text-yellow-400 hover:underline">Read interview →</a>
+                </div>
+            </div>
+            <div class="bg-black rounded-lg overflow-hidden shadow-lg">
+                <img src="/static/Image/criteria.jpg"?height=200&width=400" alt="News 3" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2">The Evolution of Voting Criteria</h3>
+                    <p class="text-gray-300 mb-4">How the Ballon d'Or selection process has changed over the years.</p>
+                    <a href="#" class="text-yellow-400 hover:underline">Read analysis →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Community and Fan Zone Section -->
+<section id="community" class="bg-black px-4 py-20">
+    <div class="mx-auto max-w-7xl">
+        <h2 class="text-4xl font-bold mb-8 text-center animate-slideIn">Community & Fan Zone</h2>
+        <div class="grid md:grid-cols-2 gap-8 stagger-animation">
+            <div class="bg-gray-900 rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Fan Forum</h3>
+                <p class="text-gray-300 mb-4">Join the discussion with other Ballon d'Or enthusiasts. Share your opinions, predictions, and favorite moments.</p>
+                <a href="#" class="inline-block px-6 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-300 transition-colors">
+                    Enter Forum
+                </a>
+            </div>
+            <div class="bg-gray-900 rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Fan Contributions</h3>
+                <p class="text-gray-300 mb-4">Submit your own Ballon d'Or rankings, articles, or analysis. The best submissions will be featured on our site!</p>
+                <a href="#" class="inline-block px-6 py-2 bg-yellow-400 text-black rounded-full hover:bg-yellow-300 transition-colors">
+                    Submit Content
+                </a>
+            </div>
+        </div>
+        <div class="mt-8 bg-gray-900 rounded-lg p-6 shadow-lg">
+            <h3 class="text-2xl font-semibold mb-4">Social Media Feed</h3>
+            <p class="text-gray-300 mb-4">See what fans are saying about the Ballon d'Or on social media.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-black p-4 rounded">
+                    <p class="text-sm">Excited for the next Ballon d'Or ceremony! #BallonDor</p>
+                    <span class="text-gray-400 text-xs">@footballfan123</span>
+                </div>
+                <div class="bg-black p-4 rounded">
+                    <p class="text-sm">Messi deserves every Ballon d'Or he's won. Legend! #BallonDor</p>
+                    <span class="text-gray-400 text-xs">@messifan10</span>
+                </div>
+                <div class="bg-black p-4 rounded">
+                    <p class="text-sm">Who's your pick for the next Ballon d'Or? #BallonDor</p>
+                    <span class="text-gray-400 text-xs">@footballtalk</span>
+                </div>
+                <div class="bg-black p-4 rounded">
+                    <p class="text-sm">The Ballon d'Or is the pinnacle of individual awards! #BallonDor</p>
+                    <span class="text-gray-400 text-xs">@soccerlover</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About / History Section -->
+<section id="about" class="bg-gray-900 px-4 py-20">
+    <div class="mx-auto max-w-7xl">
+        <h2 class="text-4xl font-bold mb-8 text-center animate-slideIn">About the Ballon d'Or</h2>
+        <div class="grid md:grid-cols-2 gap-8 stagger-animation">
+            <div class="bg-black rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">History & Origin</h3>
+                <p class="text-gray-300 mb-4">
+                    The Ballon d'Or, French for "Golden Ball," was established in 1956 by France Football magazine. 
+                    Initially, it was awarded to the best European player, but in 1995 it was expanded to include 
+                    players from any origin playing for European clubs. In 2007, it became a global award, 
+                    recognizing the world's best player regardless of nationality or club.
+                </p>
+                <a href="#" class="text-yellow-400 hover:underline">Learn more about Ballon d'Or history →</a>
+            </div>
+            <div class="bg-black rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4">Key People & Partners</h3>
+                <ul class="space-y-2 text-gray-300">
+                    <li><span class="font-semibold">France Football:</span> The magazine that created and presents the award</li>
+                    <li><span class="font-semibold">FIFA:</span> Partnered with the Ballon d'Or from 2010 to 2015</li>
+                    <li><span class="font-semibold">Pascal Ferré:</span> Current editor-in-chief of France Football</li>
+                    <li><span class="font-semibold">Gabriel Hanot:</span> Creator of the Ballon d'Or in 1956</li>
+                </ul>
+                <a href="#" class="text-yellow-400 hover:underline mt-4 inline-block">View all key figures →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="mx-auto max-w-7xl px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">About Us</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-500">Club History</a></li>
+                        <li><a href="#" class="hover:text-red-500">Stadium</a></li>
+                        <li><a href="#" class="hover:text-red-500">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Teams</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-500">First Team</a></li>
+                        <li><a href="#" class="hover:text-red-500">Women's Team</a></li>
+                        <li><a href="#" class="hover:text-red-500">Academy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Fans</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-500">Membership</a></li>
+                        <li><a href="#" class="hover:text-red-500">Tickets</a></li>
+                        <li><a href="#" class="hover:text-red-500">Fan Club</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-500">Facebook</a></li>
+                        <li><a href="#" class="hover:text-red-500">Twitter</a></li>
+                        <li><a href="#" class="hover:text-red-500">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                <p>&copy; 2024 Sheffield United FC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

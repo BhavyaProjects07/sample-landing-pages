@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Life at DIT University</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background-color: #003366;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #005999;
+        }
+
+
+        .program-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px auto;
+    max-width: 1200px;
+}
+
+.program-box {
+    position: relative;
+    text-align: center;
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.program-box h3 {
+    background-color: #ffcc00;
+    padding: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.program-box:hover h3 {
+    background-color: #e6b800;
+}
+
+.program-box p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.program-box a {
+    color: #0056b3;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.program-box:hover a {
+    color: #003d80;
+}
+
+.program-box .arrow {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 50px;
+    background-color: #0056b3;
+    transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+.program-box .arrow:after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid #0056b3;
+    transition: border-top-color 0.3s ease;
+}
+
+.program-box:hover .arrow {
+    height: 70px;
+    background-color: #003d80;
+}
+
+.program-box:hover .arrow:after {
+    border-top-color: #003d80;
+}
+
+
+    /* Adjust layout on smaller screens */
+    @media (max-width: 768px) {
+        .program-section {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .program-box {
+            width: 80%;
+            margin-bottom: 30px;
+        }
+
+        .program-box .arrow {
+            bottom: -40px;
+        }
+
+        .program-box .arrow:after {
+            border-top: 10px solid #0056b3;
+        }
+    }
+
+
+        /* Header Section with Campus Image */
+        header {
+            background: url('/static/Image/campus.webp') no-repeat center center/cover;
+            background-size: 90%; /* Decrease the width to 90% */
+            height: 60vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            animation: fadeInHeader 1.5s ease-in-out;
+        }
+
+
+        @keyframes fadeInHeader {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content */
+        .container {
+            width: 90%;
+            margin: 60px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .container h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            animation: bounceIn 1s ease;
+        }
+
+        .container p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.9);
+            }
+            60% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Campus Facilities Section */
+        .facilities-section {
+            background-color: #f1f1f1;
+            padding: 60px 0;
+        }
+
+        .facilities-container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .facility {
+            width: 30%;
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .facility:hover {
+            transform: translateY(-10px);
+        }
+
+        .facility img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .facility h3 {
+            font-size: 1.8rem;
+            margin: 15px 0;
+        }
+
+        .facility p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            background-image: linear-gradient(to right, rgba(31, 120, 172, 0.553),rgba(104, 18, 151, 0.584));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .testimonial-container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .testimonial::before {
+            content: "“";
+            font-size: 3rem;
+            color: #f0b90b;
+            position: relative;
+            top: 10px;
+            left: -10px;
+        }
+
+        .testimonial::after {
+            content: "”";
+            font-size: 3rem;
+            color: #f0b90b;
+            position: relative;
+            top: 10px;
+            right: -10px;
+        }
+
+        .author {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+        background-color: #002D62;
+        padding: 50px;
+        color: #c3c4c6;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-column {
+        flex: 1;
+        min-width: 150px;
+        margin: 20px;
+    }
+
+    .footer-column h3 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-column ul li {
+        margin: 40px 0;
+    }
+
+    .footer-column ul li a {
+        color: #909193;
+        text-decoration: none;
+    }
+
+    .footer-column ul li a:hover {
+        color: #fff;
+    }
+
+    /* Updated newsletter styling with padding and margins */
+    .footer-newsletter {
+        color: #fff;
+        font-size: 15px;
+        margin-top: 10px;
+        padding: 20px 0; /* Padding above and below */
+    }
+
+    .footer-newsletter p {
+        margin-bottom: 15px; /* Margin below paragraph */
+    }
+
+    .footer-newsletter input[type="email"] {
+        padding: 12px;
+        border: none;
+        border-radius: 3px;
+        margin-right: 10px;
+        width: 250px;
+        background-color: #1a2b5c;
+        color: #c3c4c6;
+        margin-bottom: 15px; /* Space below input field */
+    }
+
+    .footer-newsletter input[type="email"]::placeholder {
+        color: #c3c4c6;
+    }
+
+    .footer-newsletter button {
+        padding: 12px 25px;
+        background-color: #ffc107;
+        border: none;
+        color: #fff;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-bottom: 20px; /* Space below the button */
+    }
+
+    /* Social icons section with spacing */
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    .social-icons a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin: 0 10px; /* Horizontal space between icons */
+        background-color: #686c78;
+        border-radius: 5px;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .social-icons a:hover {
+        background-color: #ffc107;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        color: #c3c4c6;
+        font-size: 14px;
+        border-top: 1px solid #444;
+        margin-top: 40px;
+    }
+
+
+        /* Extra Responsive Styles */
+        @media (max-width: 768px) {
+            .facility {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <img src="/static/Image/dit_logo2.jpeg" alt="DIT Logo">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Admissions</a></li>
+            <li><a href="/About">About</a></li>
+            <li><a href="/Blog">Blog</a></li>
+            <li><a href="/Sign up">Sign Up</a></li>
+        </ul>
+    </nav>
+
+
+
+    
+
+              
+    <div class="program-section">
+        <div class="program-box">
+            <h3>UNDERGRADUATE PROGRAMS</h3>
+            <p>Begin the Journey<br>
+                <strong>Undergraduate Courses</strong> 
+            </p>
+            <a href="#">Explore</a>
+            <div class="arrow"></div>
+        </div>
+    
+        <div class="program-box">
+            <h3>POSTGRADUATE PROGRAMS</h3>
+            <p>Take the Next Step<br>
+                <strong>Postgraduate Courses</strong>
+            </p>
+            <a href="#">Explore</a>
+            <div class="arrow"></div>
+        </div>
+    
+        <div class="program-box">
+            <h3>DOCTORAL PROGRAMS</h3>
+            <p>Go Deeper into Knowledge<br>
+                <strong>Doctoral Courses</strong>
+            </p>
+            <a href="#">Explore</a>
+            <div class="arrow"></div>
+        </div>
+    </div>
+
+
+    <!-- Header Section -->
+    <header>
+        Enjoy the Campus Life at DIT
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <h2>Discover the Vibrant Campus Life at DIT University</h2>
+        <p>
+            Life at DIT University is more than just academics. It’s about the community, the friendships, the experiences, and
+            the personal growth that comes with being part of a diverse student body. Whether it’s joining a student club,
+            attending events, or simply relaxing in one of the many campus green spaces, DIT University offers a balanced
+            student life.
+        </p>
+        <p>
+            Our state-of-the-art campus includes modern dormitories, recreation centers, sports complexes, and a wide range of
+            dining options. With a variety of student organizations, sports teams, and cultural activities, there’s always something
+            happening on campus. You’ll build memories that will last a lifetime!
+        </p>
+        <p>
+            Our campus is designed to inspire learning, creativity, and growth, with world-class facilities and an inclusive
+            environment that promotes collaboration. Whether you're studying, socializing, or exploring new ideas, DIT’s campus
+            is where you can thrive.
+        </p>
+    </div>
+
+    <!-- Campus Facilities Section -->
+    <div class="facilities-section">
+        <div class="facilities-container">
+            <div class="facility">
+                <img src="/static/Image/lib.webp" alt="Library">
+                <h3>Modern Library</h3>
+                <p>
+                    Our library offers a comprehensive range of academic resources, along with collaborative spaces for students.
+                </p>
+            </div>
+            <div class="facility">
+                <img src="/static/Image/sports.jpg" alt="Sports Facilities">
+                <h3>Sports Facilities</h3>
+                <p>
+                    DIT University has world-class sports facilities, including a full-sized football field, tennis courts, and more.
+                </p>
+            </div>
+            <div class="facility">
+                <img src="/static/Image/banner4.webp" alt="Dormitory">
+                <h3>Comfortable Dormitories</h3>
+                <p>
+                    Our student dormitories are modern, secure, and provide a great environment for both relaxation and study.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="testimonial-section">
+        <div class="testimonial-container">
+            <p class="testimonial">
+                “DIT University’s campus life has been nothing short of amazing! From academics to extracurricular activities, it has shaped my college experience in the best way possible.”
+            </p>
+            <p class="author">— Sarah K., 4th Year Student</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+  
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>TOP PRODUCTS</h3>
+                <ul>
+                    <li><a href="#">Manage Reputation</a></li>
+                    <li><a href="#">Power Tools</a></li>
+                    <li><a href="#">Managed Website</a></li>
+                    <li><a href="#">Marketing Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Marketing Service</a></li>
+                    <li><a href="#">Manage Reputation</a></li>
+                    <li><a href="#">Power Tools</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>FEATURES</h3>
+                <ul>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Brand Assets</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Terms Of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>RESOURCES</h3>
+                <ul>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Experts</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Marketing Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <div class="footer-newsletter">
+                    <p>You can trust us. We only send promo offers,</p>
+                    <input type="email" placeholder="Your Email Address">
+                    <button>SUBSCRIBE</button>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            Copyright &copy; 2024 All rights reserved | This template is made by Bhavya Sharma
+        </div>
+    </footer>
+
+
+</body>
+</html>

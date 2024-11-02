@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheffield United FC - Latest News and Updates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-out;
+        }
+        .animate-slideIn {
+            animation: slideIn 0.5s ease-out;
+        }
+        .stagger-animation > * {
+            opacity: 0;
+            animation: slideIn 0.5s ease-out forwards;
+        }
+        .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fadeIn, .animate-slideIn, .stagger-animation > * {
+                animation: none !important;
+                opacity: 1 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <header class="fixed top-0 z-50 w-full bg-black/90 px-4 py-3">
+        <div class="mx-auto flex max-w-7xl items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a href="/" class="text-white">
+                    <img src="C:\Users\Dell\OneDrive\Desktop\Whole python\sample-landing-pages\static\Image\santiago.jpeg" alt="Logo" class="h-10 w-10">
+                </a>
+                <nav class="hidden md:block">
+                    <ul class="flex gap-6 text-sm font-medium">
+                        <li><a href="#" class="hover:text-red-500">NEWS</a></li>
+                        <li><a href="#" class="hover:text-red-500">SUTV</a></li>
+                        <li><a href="#" class="hover:text-red-500">MATCHES</a></li>
+                        <li><a href="#" class="hover:text-red-500">TEAMS</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <nav class="hidden md:block">
+                    <ul class="flex gap-6 text-sm font-medium">
+                        <li><a href="#" class="hover:text-red-500">TICKETS</a></li>
+                        <li><a href="#" class="hover:text-red-500">SHOP</a></li>
+                        <li><a href="#" class="hover:text-red-500">LOGIN</a></li>
+                    </ul>
+                </nav>
+                <button aria-label="Search" class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <button aria-label="Menu" class="md:hidden text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative h-screen">
+            <img src="C:\Users\Dell\OneDrive\Desktop\Whole python\sample-landing-pages\static\Image\goats.jpg?height=1000&width=1920" alt="Hero background" class="h-full w-full object-cover brightness-50">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                <div class="mx-auto max-w-7xl px-4 pt-32">
+                    <div class="mt-auto space-y-4 pt-48 stagger-animation">
+                        <div class="flex gap-2 text-sm font-medium text-gray-300">
+                            <span>5 mins ago</span>
+                            <span>•</span>
+                            <span>Football</span>
+                        </div>
+                        <h1 class="text-5xl font-bold tracking-tight">SUMMER CALL UPS</h1>
+                        <p class="max-w-2xl text-lg text-gray-300">
+                            Several United players have been called up by their respective countries ahead of some summer international fixtures.
+                        </p>
+                        <a href="#" class="inline-block mt-4 px-6 py-2 border border-white bg-transparent text-white hover:bg-white hover:text-black transition-colors duration-300">
+                            CONTINUE READING
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-black px-4 py-12">
+            <div class="mx-auto max-w-7xl">
+                <h2 class="mb-8 text-3xl font-bold">NEWS</h2>
+                <div class="grid gap-6 md:grid-cols-3">
+                    <a href="#" class="group relative overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="News 1" class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                            <div class="absolute bottom-0 p-4">
+                                <h3 class="text-xl font-bold">Latest News Title</h3>
+                                <p class="text-sm text-gray-300">Read more about our latest updates</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="group relative overflow-hidden rounded-lg">
+                        <img src="C:\Users\Dell\OneDrive\Desktop\Whole python\sample-landing-pages\static\Image\elclassico2.webp" alt="News 2" class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                            <div class="absolute bottom-0 p-4">
+                                <h3 class="text-xl font-bold">Team Update</h3>
+                                <p class="text-sm text-gray-300">Get the latest on our squad</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="group relative overflow-hidden rounded-lg">
+                        <img src="C:\Users\Dell\OneDrive\Desktop\Whole python\sample-landing-pages\static\Image\preview.jpg" alt="News 3" class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                            <div class="absolute bottom-0 p-4">
+                                <h3 class="text-xl font-bold">Match Preview</h3>
+                                <p class="text-sm text-gray-300">Prepare for our upcoming fixture</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Football News Section -->
+        <section class="bg-gray-900 px-4 py-16">
+            <div class="mx-auto max-w-7xl">
+                <h2 class="mb-8 text-3xl font-bold flex items-center animate-slideIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                        <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                    </svg>
+                    Latest Football News
+                </h2>
+                <div class="grid gap-8 md:grid-cols-2 stagger-animation">
+                    <div class="bg-black rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Transfer Rumors Heat Up</h3>
+                        <p class="text-gray-300 mb-4">
+                            As the summer transfer window approaches, speculation is rife about potential moves for top players. 
+                            Several clubs are reportedly in talks with star forwards and midfielders, looking to strengthen their squads for the upcoming season. 
+                            Insiders suggest that some surprising deals might be in the works, with a few unexpected names potentially changing clubs.
+                        </p>
+                        <a href="#" class="text-red-500 hover:text-red-400">Read more →</a>
+                    </div>
+                    <div class="bg-black rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Champions League Final Preview</h3>
+                        <p class="text-gray-300 mb-4">
+                            The stage is set for an epic showdown in the Champions League final. 
+                            Both teams have overcome tough opposition to reach this point, and analysts are divided on who will lift the trophy. 
+                            Key players to watch include the prolific strikers on both sides, as well as the midfield maestros who could dictate the pace of the game.
+                        </p>
+                        <a href="#" class="text-red-500 hover:text-red-400">Read more →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Scores Section -->
+        <section class="bg-black px-4 py-16">
+            <div class="mx-auto max-w-7xl">
+                <h2 class="mb-8 text-3xl font-bold flex items-center animate-slideIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" />
+                    </svg>
+                    Latest Scores
+                </h2>
+                <div class="grid gap-4 md:grid-cols-3 animate-slideIn">
+                    <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold">Man United</span>
+                            <span class="text-2xl font-bold">2 - 1</span>
+                            <span class="font-semibold">Liverpool</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Premier League • Final</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold">Barcelona</span>
+                            <span class="text-2xl font-bold">3 - 0</span>
+                            <span class="font-semibold">Real Madrid</span>
+                        </div>
+                        <p class="text-sm text-gray-400">La Liga • Final</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-4 shadow-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold">Bayern</span>
+                            <span class="text-2xl font-bold">2 - 2</span>
+                            <span class="font-semibold">Dortmund</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Bundesliga • Final</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOTY and Ballon d'Or News Section -->
+        <section class="bg-gray-900 px-4 py-16">
+            <div class="mx-auto max-w-7xl">
+                <h2 class="mb-8 text-3xl font-bold flex items-center animate-slideIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    TOTY and Ballon d'Or News
+                </h2>
+                <div class="grid gap-8 md:grid-cols-2 stagger-animation">
+                    <div class="bg-black rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Team of the Year Predictions</h3>
+                        <p class="text-gray-300 mb-4">
+                            As the football season draws to a close, speculation about the Team of the Year (TOTY) is heating up. 
+                            Pundits and fans alike are debating which players deserve a spot in this prestigious lineup. 
+                            Key contenders include the top goal scorers from various leagues, as well as defenders who have been instrumental in their team's success. 
+                            The midfield selection is particularly competitive this year, with several world-class players vying for limited spots.
+                        </p>
+                        <a href="#" class="text-red-500 hover:text-red-400">Read full predictions →</a>
+                    </div>
+                    <div class="bg-black rounded-lg p-6 shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4">Ballon d'Or Race Heats Up</h3>
+                        <p class="text-gray-300 mb-4">
+                            The race for the Ballon d'Or, football's most prestigious individual award, is intensifying. 
+                            This year's competition is particularly fierce, with several players putting in exceptional performances throughout the season. 
+                            The frontrunners include last year's winner, who has maintained their stellar form, and a young talent who has taken the football world by storm. 
+                            Experts are also considering the impact of international tournaments on the final decision.
+                        </p>
+                        <a href="#" class="text-red-500 hover:text-red-400">Explore top contenders →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="mx-auto max-w-7xl px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">About Us</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-500">Club History</a></li>
+                        <li><a href="#" class="hover:text-red-500">Stadium</a></li>
+                        <li><a href="#" class="hover:text-red-500">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Teams</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-500">First Team</a></li>
+                        <li><a href="#" class="hover:text-red-500">Women's Team</a></li>
+                        <li><a href="#" class="hover:text-red-500">Academy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Fans</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-500">Membership</a></li>
+                        <li><a href="#" class="hover:text-red-500">Tickets</a></li>
+                        <li><a href="#" class="hover:text-red-500">Fan Club</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-500">Facebook</a></li>
+                        <li><a href="#" class="hover:text-red-500">Twitter</a></li>
+                        <li><a href="#" class="hover:text-red-500">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                <p>&copy; 2024 Sheffield United FC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const animateOnScroll = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-slideIn');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(animateOnScroll, {
+                root: null,
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('h1, h2, h3, p').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

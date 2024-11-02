@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DIT University Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; 
+            color: #333;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #002D62;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            width: 130px; /* Adjust size of the logo */
+            margin-right: 15px;
+        }
+
+        .header .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Featured Post Section */
+        .featured-post {
+            background-color: #e1e5ea;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .featured-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .featured-content img {
+            width: 50%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .featured-text {
+            max-width: 45%;
+        }
+
+        .featured-text h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .featured-text p {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #002D62;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Blog Categories */
+        .blog-categories {
+            background-color: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .blog-categories .categories {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .blog-categories a {
+            text-decoration: none;
+            color: #002D62;
+            font-weight: bold;
+        }
+
+        .blog-categories a:hover {
+            text-decoration: underline;
+        }
+
+        /* Blog Posts */
+        .blog-posts {
+            padding: 40px 0;
+        }
+
+        .post-grid {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .post {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-basis: calc(33.333% - 20px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .post img {
+            width: 100%;
+            height: auto;
+        }
+
+        .post-content {
+            padding: 20px;
+        }
+
+        .post-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .post-content p {
+            margin-bottom: 10px;
+        }
+
+        .read-more {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .post-info {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            font-size: 14px;
+        }
+
+        .post-info span {
+            display: flex;
+            align-items: center;
+        }
+
+        .post-info i {
+            margin-right: 5px;
+        }
+
+
+
+
+        /* Upcoming Events Section */
+        /* General Styles */
+
+
+      
+
+
+        body {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            
+            background-color: #f4f4f4;
+        }
+
+        /* Section Styles */
+        .section {
+            margin: 80px auto; /* Center the sections */
+            padding: 20px;
+            margin-left: 180px;
+            margin-right: 180px;
+            border-radius: 20px;
+            background-color: #ffffff; /* White background for sections */
+            box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease; /* Smooth hover effect */
+        }
+
+        .section h2 {
+            text-align: center;
+            color: #464646;
+        }
+
+        /* Container Styles for Events, Organizations, Achievements */
+        .event-container,
+        .org-container,
+        .achieve-container {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px solid #e1d713; /* Border around each box */
+            border-radius: 8px;
+            background-color: #d3d3d3; /* Light background for boxes */
+            transition: transform 0.3s, box-shadow 0.3s; /* Animation on hover */
+        }
+
+        .event-container:hover,
+        .org-container:hover,
+        .achieve-container:hover {
+            transform: scale(1.02); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+        }
+
+        /* Image Styles */
+        .event-image,
+        .org-image,
+        .achieve-image {
+            width: 100px; /* Fixed width for images */
+            height: auto;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+
+        /* Icon Styles */
+        .event-icon,
+        .org-icon,
+        .achieve-icon {
+            font-size: 40px; /* Icon size */
+            margin-right: 15px; /* Space between icon and text */
+            color: #007bff; /* Icon color */
+        }
+
+        /* Details Styles */
+        .event-details,
+        .org-details,
+        .achieve-details {
+            flex-grow: 1; /* Allow text to take available space */
+        }
+
+        /* List Styles */
+        ul {
+            list-style-type: disc; /* Bullet points */
+            margin-left: 20px; /* Left margin for list */
+        }
+
+
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        /* Footer */
+        
+        footer {
+            padding: 8vw;
+            background-color: #101632;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+
+
+        footer .footer-col{
+            padding-bottom: 40px;
+        }
+
+
+        footer h3{
+            color: rgb(241,240,245);
+            font-weight: 600;
+            padding-bottom: 20px;
+        }
+
+
+        footer li{
+            list-style: none;
+            color: #7b838a;
+            padding: 10px 0;
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
+
+
+        footer li:hover{
+            color:  rgb(241,240,245);
+
+        }
+
+
+        footer p{
+            color: #7b838a;
+        }
+
+
+        footer .subscribe{
+            margin-top: 20px;
+        }
+
+
+        footer input{
+            width: 220px;
+            padding: 15px 12px;
+            background: #1a35ac;
+            border: none;
+            outline: none;
+            color: #fff;
+        }
+
+
+        footer .yellow button{
+            background-color: #FDC63E; /* The yellow color */
+            color: white; /* Text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+            transition: 0.5s ease;
+        }
+
+
+        footer .yellow button:hover{
+            background-color: #ba7900; /* Slightly darker yellow for hover effect */
+        }
+
+
+
+
+        footer .copyright{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+
+        footer .copyright .pro-links i{
+            background-color: #5f7185;
+            color: #fff;
+        }
+
+
+        footer .copyright .pro-links i:hover{
+            
+            background:rgb(244, 237, 15);
+            cursor:pointer;
+            border:1px solid rgb(21,21,100);
+            color: #2c2c2c;
+        }
+
+
+        footer .copyright p{
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        
+
+        @media(max-width:600px){
+            
+            .nav {
+                display: flex;
+                justify-content: flex-end;
+                padding-top: 20px;
+            }
+            
+            
+            .nav ul {
+                list-style: none;
+                display: flex;
+                gap: 20px;
+            }
+
+            .header .logo img {
+                width: 90px;
+                margin-right: 15px;
+            }
+            
+            .header .container {
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: center;
+                align-items: center;
+            }
+
+
+            .blog-categories .categories {
+                list-style: none;
+                display: flex;
+                justify-content: space-evenly;
+                gap: 20px;
+                flex-direction: column-reverse;
+                align-content: center;
+                align-items: center;
+            }
+
+
+            .post {
+                background-color: white;
+                border-radius: 10px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                flex-basis: auto;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .post img{
+                width: 390px !important;
+                height: 269px !important;
+            }
+
+            .section {
+                margin: 50px 5px;
+                padding: 30px;
+                border-radius: 30px;
+                background-color: #ffffff;
+                box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .event-container, .org-container, .achieve-container {
+                display: flex;
+                align-items: center;
+                margin: 20px -15px;
+                padding: 10px;
+                border: 2px solid #e1d713; 
+                border-radius: 8px;
+                background-color: #d3d3d3;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+
+            ul {
+                list-style-type: disc;
+                margin-left: 10px;
+            }
+
+
+            .nav ul {
+                list-style: none;
+                display: flex;
+                gap: 10px;
+            }
+
+
+
+        }
+            
+
+
+
+
+
+
+
+        
+        </style>
+
+</head>
+<body>
+    
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="/static/Image/dit_logo2.jpeg" alt="DIT University Logo">
+                <h1>DIT University Blog</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Courses">Courses</a></li>
+                    <li><a href="/Admissions">Admissions</a></li>
+                    <li><a href="/About">About</a></li>
+                    <li><a href="/Blog">Blog</a></li>
+                    <li><a href="/Sign up">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Featured Post Section -->
+    <section class="featured-post">
+        <div class="container">
+            <div class="featured-content">
+                <img src="/static/Image/banner5.webp" alt="Featured Blog Post">
+                <div class="featured-text">
+                    <h2>Explore Campus Life at DIT University</h2>
+                    <p>Learn what it's like to be a student at DIT University, from academics to extracurricular activities.</p>
+                    <a href="/Read More" class="btn">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Categories Section -->
+    <section class="blog-categories">
+        <div class="container">
+            <ul class="categories">
+                <li><a href="#">Campus Life</a></li>
+                <li><a href="/Research">Research</a></li>
+                <li><a href="#">Student Stories</a></li>
+                <li><a href="#">Career Advice</a></li>
+                <li><a href="#">Events & Achievements</a></li>
+            </ul>
+        </div> 
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section class="blog-posts">
+        <div class="container">
+            <div class="post-grid">
+                <!-- Single Blog Post -->
+                <article class="post">
+                    <img src="/static/Image/banner3.webp" alt="Blog Post Image">
+                    <div class="post-content">
+                        <h3>Research Breakthrough in Renewable Energy</h3>
+                        <p>DIT University's research team has made significant progress in renewable energy solutions...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="post-info">
+                        <span><i class="fas fa-user"></i> Prof. Sharma</span>
+                        <span><i class="fas fa-calendar"></i> October 15, 2024</span>
+                    </div>
+                </article>
+
+                <!-- Another Blog Post -->
+                <article class="post">
+                    <img src= "/static/Image/fest.webp">
+                    <div class="post-content">
+                        <h3>DIT University’s Annual Tech Fest</h3>
+                        <p>The university hosted its annual Tech Fest, featuring innovative projects by students and alumni...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="post-info">
+                        <span><i class="fas fa-user"></i> Admin</span>
+                        <span><i class="fas fa-calendar"></i> October 12, 2024</span>
+                    </div>
+                </article>
+
+                <!-- ---blog post 3---- -->
+                <article class="post">
+                    <img src="/static/Image/Registrate.jpeg" alt="Blog Post Image">
+                    <div class="post-content">
+                        <h3>Innovations in AI at DIT University</h3>
+                        <p>DIT University’s AI research lab is leading the way in groundbreaking advancements in artificial intelligence...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="post-info">
+                        <span><i class="fas fa-user"></i> Dr. Rajesh</span>
+                        <span><i class="fas fa-calendar"></i> October 10, 2024</span>
+                    </div>
+                </article>
+
+                <!-- ---blog post 4---- -->
+
+                <article class="post">
+                    <img style = "width: 367px; height: 269px;"src="/static/Image/architecture.jpg">
+                    <div class="post-content">
+                        <h3>Sustainable Architecture Programs at DIT University</h3>
+                        <p>Discover the sustainable architecture initiatives at DIT University that are shaping the future of environmentally conscious design...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="post-info">
+                        <span><i class="fas fa-user"></i> Prof. Ananya</span>
+                        <span><i class="fas fa-calendar"></i> October 20, 2024</span>
+                    </div>
+                </article>
+                
+                
+                <!-- ----blog-post5--- -->
+                
+
+                <article class="post">
+                    <img src="/static/Image/bio-tech2.png" alt="Blog Post Image">
+                    <div class="post-content">
+                        <h3>Advancements in Biotechnology at DIT University</h3>
+                        <p>DIT University is spearheading new initiatives in biotechnology that promise to revolutionize healthcare...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="post-info">
+                        <span><i class="fas fa-user"></i> Dr. Nandini</span>
+                        <span><i class="fas fa-calendar"></i> October 5, 2024</span>
+                    </div>
+                </article>
+
+                
+                <!-- ---blog-post-6-- -->
+
+                <article class="post">
+                    <img style = "width: 367px; height: 269px;" src="/static/Image/student.webp" alt="Blog Post Image">
+                    <div class="post-content">
+                        <h3>Student Achievements at DIT University</h3>
+                        <p>DIT University students have achieved top honors in international competitions in various disciplines...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="post-info">
+                        <span><i class="fas fa-user"></i> Prof. Mehta</span>
+                        <span><i class="fas fa-calendar"></i> October 12, 2024</span>
+                    </div>
+                </article>
+
+
+
+                
+                
+                
+                
+                
+                <!-- Add more posts similarly -->
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+    <!-- ----some more sections------->
+
+
+<!-- Upcoming Events Section -->
+
+
+
+    <div class="blog-banner">
+        <div class="section" id="upcoming-events">
+            <h2>Upcoming Events</h2>
+            <div class="event-container">
+                <i class="fas fa-calendar-alt event-icon"></i>
+                <img src="/static/Image/blog.jpg" alt="Upcoming Event" class="event-image">
+                <div class="event-details">
+                    <h3>Annual Science Fair</h3>
+                    <p>Join us for the Annual Science Fair where students showcase their projects.</p>
+                    <ul>
+                        <li>Date: March 20, 2024</li>
+                        <li>Location: DIT University Auditorium</li>
+                        <li>Time: 10 AM - 4 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="event-container">
+                <i class="fas fa-users event-icon"></i>
+                <img src="/static/Image/blog.jpg" alt="Event 2" class="event-image">
+                <div class="event-details">
+                    <h3>Student Networking Event</h3>
+                    <p>A great opportunity to connect with peers and alumni.</p>
+                    <ul>
+                        <li>Date: April 15, 2024</li>
+                        <li>Location: Campus Grounds</li>
+                        <li>Time: 5 PM - 7 PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="student-organizations">
+            <h2>Student Organizations</h2>
+            <div class="org-container">
+                <i class="fas fa-book org-icon"></i>
+                <img src="/static/Image/blog.jpg" alt="Organization" class="org-image">
+                <div class="org-details">
+                    <h3>Literature Club</h3>
+                    <p>Explore your passion for literature and participate in weekly readings.</p>
+                    <ul>
+                        <li>Membership Open: Yes</li>
+                        <li>Contact: literatureclub@dit.edu</li>
+                        <li>Meetings: Wednesdays, 5 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="org-container">
+                <i class="fas fa-microphone org-icon"></i>
+                <img src="/static/Image/blog.jpg" alt="Organization 2" class="org-image">
+                <div class="org-details">
+                    <h3>Debate Society</h3>
+                    <p>Enhance your public speaking skills and engage in debates.</p>
+                    <ul>
+                        <li>Membership Open: Yes</li>
+                        <li>Contact: debatesociety@dit.edu</li>
+                        <li>Meetings: Fridays, 4 PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="recent-achievements">
+            <h2>Recent Achievements</h2>
+            <div class="achieve-container">
+                <i class="fas fa-trophy achieve-icon"></i>
+                <img src="/static/Image/blog.jpg" alt="Achievement" class="achieve-image">
+                <div class="achieve-details">
+                    <h3>Best Innovation Award</h3>
+                    <p>The DIT University Robotics Team won the Best Innovation Award at the National Robotics Competition.</p>
+                    <ul>
+                        <li>Team Members: John Doe, Jane Smith, Alice Johnson</li>
+                        <li>Date of Achievement: June 5, 2024</li>
+                        <li>Event Location: Tech Convention Center</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="achieve-container">
+                <i class="fas fa-graduation-cap achieve-icon"></i>
+                <img src="/static/Image/blog.jpg" alt="Achievement 2" class="achieve-image">
+                <div class="achieve-details">
+                    <h3>Top Academic Performance</h3>
+                    <p>DIT University was recognized for having the highest graduation rates in the region.</p>
+                    <ul>
+                        <li>Recognized By: Education Board</li>
+                        <li>Date of Recognition: May 15, 2024</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer Section -->
+  
+    <footer>
+        <div class="footer-col">
+            <h3>TOP PRODUCTS</h3>
+            <li>Manage Reputation</li>
+            <li>Power Tools</li>
+            <li>Managed Website</li>
+            <li>Marketing Service</li>
+        </div>
+  
+        <div class="footer-col">
+            <h3>QUICK LINKS</h3>
+            <li>Power Tools</li>
+            <li>Home</li>
+            <li>Marketing Service</li>
+            <li>Manage Reputation</li>
+        </div>
+          
+        
+        <div class="footer-col">
+            <h3>FEATURES</h3>
+            <li>Jobs</li>
+            <li>Brand Assets</li>
+            <li>Investor Relations</li>
+            <li>Terms Of Service</li>
+        </div>
+  
+        <div class="footer-col">
+            <h3>RESOURCES</h3>
+            <li>research</li>
+            <li>Experts</li>
+            <li>Guides</li>
+            <li>Marketing Service</li>
+        </div>
+  
+  
+        <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p>You can trust us. we only send promo offers ,</p>
+            <div class="subscribe">
+                <input type="text" placeholder="Your Email Address">
+                <a href="#" class="yellow"> <button type="button"><span></span>SUBSCRIBE</button></a>
+            </div>
+        </div>
+          
+  
+        <div class="copyright" >
+          <p>Copyright @2024 All rights reserved | This template is made by Bhavya Sharma</p>
+          <div class="pro-links">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+        </div> 
+  
+    </footer>
+
+
+</body>
+</html>

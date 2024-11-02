@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses at DIT University</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: #003366;
+            padding: 15px;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            overflow: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: #005999;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 270px; /* Adjusted for the sidebar */
+            padding: 20px;
+            width: calc(100% - 270px);
+        }
+
+        /* Navbar Styles */
+        nav {
+            background-color: #003366;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover { 
+            background-color: #005999;
+        }
+
+        /* Header Section */
+        header {
+            background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url("/static/Image/banner4.webp");
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Course Section */
+        .course-section {
+            margin: 60px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .course-box {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .course-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .course-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .course-box h3 {
+            font-size: 1.8rem;
+            margin: 15px 0;
+            text-align: center;
+            color: #003366;
+        }
+
+        .course-box p {
+            font-size: 1rem;
+            padding: 0 20px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffcc00;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+
+
+        /* Enroll Button Styles */
+        .enroll-button {
+            background-color: #28a745; /* Green color for the enroll button */
+            color: white;
+            border: none;
+            padding: 5px 10px; /* Smaller padding for a compact button */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px; /* Space above the enroll button */
+            font-size: 0.9rem; /* Slightly smaller font size */
+            width: auto; /* Automatic width to keep it small */
+        }
+
+        .enroll-button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+
+        /* Additional Sections */
+        /* Additional Section Styles */
+        .additional-section {
+            margin: 40px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .additional-section h2 {
+            color: #003366;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .section-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .additional-section p {
+            line-height: 1.6;
+            color: #555;
+            margin: 10px 0;
+            text-align: justify;
+        }
+
+        /* Mini Form Styles */
+        .mini-form {
+            background-color: #e2e2e2;
+            padding: 15px;
+            margin-right: 700px;
+            border-radius: 5px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mini-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .mini-form input[type="text"],
+        .mini-form input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .mini-form button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .mini-form button:hover {
+            background-color: #005999;
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #0a0a23;
+            padding: 40px;
+            color: #fff;
+            text-align: center;
+        }
+
+        footer h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .course-box {
+                width: 100%;
+                margin: 0 auto 30px auto;
+            }
+
+            .course-section {
+                margin: 40px 20px 40px 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 0;
+            }
+
+            .mini-form{
+                margin-right: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+            .sidebar {
+                display: none; /* Hide the sidebar by default on mobile */
+        }
+
+
+
+       
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
+                display: block !important;
+                padding: 20px;
+                background-color: #082a4d;
+                border-right: 1px solid #c7c7c7;
+            }
+
+            .content {
+                margin-left: 260px; /* Adjust content margin to fit the sidebar */
+            }
+
+            .sidebar ul {
+                padding: 0;
+                list-style-type: none;
+            }
+
+            .sidebar ul li {
+                padding: 10px 0;
+            }
+
+            .mini-form {
+                background-color: #e2e2e2;
+                padding: 15px;
+                margin-right: 0;
+                border-radius: 5px;
+                margin-top: 20px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .sidebar ul li a {
+                text-decoration: none;
+                color: #333; /* Sidebar link color */
+                font-weight: bold;
+            }
+            
+            /* Ensure fonts and spacing look good on iPad */
+            .sidebar h2 {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+
+            /* Ensure proper visibility of small elements */
+            .sidebar ul li a:hover {
+                color: #007bff; /* Change color on hover */
+            }
+}
+
+        }
+
+
+
+
+        /* Base styles - Mobile First (default) */
+
+/* Media Queries */
+
+/* Tablet (min-width: 768px) */
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Quick Links</h2>
+        <a href="#course1">Computer Science</a>
+        <a href="#course2">Business Administration</a>
+        <a href="#course3">Philosophy in Engineering</a>
+        <a href="#course4">Arts in Design</a>
+        <a href="#course5">Data Science</a>
+        <a href="#course6">Mechanical Engineering</a>
+        <a href="#admissions">Admissions</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Navbar -->
+        <nav>
+            <img src="/static/Image/dit_logo2.jpeg" alt="DIT Logo">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/Courses">Courses</a></li>
+                <li><a href="#">Admissions</a></li>
+                <li><a href="/About">About</a></li>
+                <li><a href="/Blog">Blog</a></li>
+                <li><a href="/Sign up">Sign Up</a></li>
+            </ul>
+        </nav>
+
+        <!-- Header Section -->
+        <header>
+            Explore Our Courses at DIT University
+        </header>
+
+        <!-- Course Section -->
+        <div class="course-section">
+            <div class="course-box" id="course1">
+                <img src="/static/Image/courses1.png" alt="Course 1">
+                <h3>Bachelor of Computer Science</h3>
+                <p>This course provides comprehensive knowledge in computer science, programming, and software development.</p>
+                <p class="price-tag">$15,000</p>
+                <button class="enroll-button">Enroll</button>
+            </div>
+
+            <div class="course-box" id="course2">
+                <img src="/static/Image/courses2.png">
+                <h3>Master of Business Administration</h3>
+                <p>Gain leadership skills and knowledge in business management, marketing, and finance with our MBA program.</p>
+                <p class="price-tag">$20,000</p>
+                <button class="enroll-button">Enroll</button>
+            </div>
+
+            <div class="course-box" id="course3">
+                <img src="/static/Image/courses3.webp" alt="Course 3">
+                <h3>Doctor of Philosophy in Engineering</h3>
+                <p>Engage in research and innovation in the field of engineering, paving the way for a successful career.</p>
+                <p class="price-tag">$25,000</p>
+                <button class="enroll-button">Enroll</button>
+            </div>
+
+            <div class="course-box" id="course4">
+                <img src="/static/Image/courses4.webp" alt="Course 4">
+                <h3>Bachelor of Arts in Design</h3>
+                <p>Explore creativity and design principles while building a portfolio for a successful career in arts.</p>
+                <p class="price-tag">$18,000</p>
+                <button class="enroll-button">Enroll</button>
+            </div>
+
+            <div class="course-box" id="course5">
+                <img src="/static/Image/courses5.jpeg" alt="Course 5">
+                <h3>Master of Data Science</h3>
+                <p>Learn data analysis, machine learning, and big data technologies to become a leading data scientist.</p>
+                <p class="price-tag">$22,000</p>
+                <button class="enroll-button">Enroll</button>
+            </div>
+
+            <div class="course-box" id="course6">
+                <img src="/static/Image/courses6.jpg" alt="Course 6">
+                <h3>Bachelor of Mechanical Engineering</h3>
+                <p>Develop skills in mechanical design, manufacturing processes, and engineering principles.</p>
+                <p class="price-tag">$17,000</p>
+                <button class="enroll-button">Enroll</button>
+            </div>
+
+            <!-- Continue adding courses after the existing ones -->
+
+            <!-- B.Sc in Mathematics -->
+            <div class="course-box" id="course7">
+                <img src="/static/Image/course7.webp"  alt="B.Sc Mathematics">
+                <h3>B.Sc in Mathematics</h3>
+                <p>Develop a strong foundation in advanced mathematics, including algebra, calculus, and discrete mathematics. Duration: 3 years.</p>
+                <span class="price-tag">₹ 90,000 /year</span>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+            <!-- M.Sc in Chemistry -->
+            <div class="course-box" id="course8">
+                <img src="/static/Image/course8.webp"  alt="M.Sc Chemistry">
+                <h3>M.Sc in Chemistry</h3>
+                <p>Explore advanced topics in organic, inorganic, and physical chemistry. Duration: 2 years.</p>
+                <span class="price-tag">₹ 1,10,000 /year</span>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+            <!-- B.Tech in Electrical Engineering -->
+            <div class="course-box" id="course9">
+                <img src="/static/Image/course9.webp"  alt="B.Tech Electrical Engineering">
+                <h3>B.Tech in Electrical Engineering</h3>
+                <p>Learn the principles of electrical circuits, power systems, and control engineering. Duration: 4 years.</p>
+                <span class="price-tag">₹ 1,60,000 /year</span>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+            <!-- B.Sc in Biotechnology -->
+            <div class="course-box" id="course10">
+                <img src="/static/Image/course10.jpg"  alt="B.Sc Biotechnology">
+                <h3>B.Sc in Biotechnology</h3>
+                <p>Study genetic engineering, microbiology, and bioinformatics to understand modern biotechnology. Duration: 3 years.</p>
+                <span class="price-tag">₹ 1,00,000 /year</span>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+            <!-- B.Tech in Electronics & Communication Engineering -->
+            <div class="course-box" id="course11">
+                <img src="/static/Image/course11.jpg"  alt="B.Tech Electronics & Communication Engineering">
+                <h3>B.Tech in Electronics & Communication Engineering</h3>
+                <p>Gain knowledge in embedded systems, VLSI design, and communication networks. Duration: 4 years.</p>
+                <span class="price-tag">₹ 1,65,000 /year</span>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+            <!-- MBA in Human Resource Management -->
+            <div class="course-box" id="course12">
+                <img src="/static/Image/course15.webp"  alt="MBA Human Resource Management">
+                <h3>MBA in Human Resource Management</h3>
+                <p>Master the art of managing people and organizational behavior. Duration: 2 years.</p>
+                <span class="price-tag">₹ 2,00,000 /year</span>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+            <!-- B.Sc in Computer Science -->
+            <div class="course-box" id="course13">
+                <img src="/static/Image/course13.jpg"  alt="B.Sc Computer Science">
+                <h3>B.Sc in Computer Science</h3>
+                <p>Build a strong foundation in software development, algorithms, and data structures. Duration: 3 years.</p>
+                <span class="price-tag">₹ 1,10,000 /year</span>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+            <!-- M.Tech in Structural Engineering -->
+            <div class="course-box" id="course14">
+                <img src="/static/Image/course14.jpg"  alt="M.Tech Structural Engineering">
+                <h3>M.Tech in Structural Engineering</h3>
+                <p>Specialize in the design and analysis of structures such as buildings and bridges. Duration: 2 years.</p>
+                <span class="price-tag">₹ 1,50,000 /year</span>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+            <!-- B.Tech in Information Technology -->
+            <div class="course-box" id="course15">
+                <img src="/static/Image/course12.png"  alt="B.Tech Information Technology">
+                <h3>B.Tech in Information Technology</h3>
+                <p>Explore topics like software engineering, databases, and web technologies. Duration: 4 years.</p>
+                <span class="price-tag">₹ 1,70,000 /year</span>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+            <!-- M.Tech in Power Systems -->
+            <div class="course-box" id="course16">
+                <img src="/static/Image/course16.jpeg"  alt="M.Tech Power Systems">
+                <h3>M.Tech in Power Systems</h3>
+                <p>Delve into advanced power electronics, control systems, and smart grids. Duration: 2 years.</p>
+                <span class="price-tag">₹ 1,60,000 /year</span>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+            <div class="course-box" id="course17">
+                <img src="/static/Image/course17.jpg"  alt="Data Science Course">
+                <h3>Data Science & Analytics</h3>
+                <p>Master the art of data analysis and statistical computing with our comprehensive Data Science program.</p>
+                <p class="price">₹ 1,50,000</p>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+            
+            <div class="course-box" id="course18">
+                <img src="/static/Image/course18.png"  alt="Cyber Security Course">
+                <h3>Cyber Security</h3>
+                <p>Learn to protect networks, systems, and data from cyber attacks in our cutting-edge Cyber Security course.</p>
+                <p class="price">₹ 1,80,000</p>
+                <button class="enroll-button">Enroll Now</button>
+            </div>
+
+           
+            
+            
+
+
+
+
+
+        </div>
+
+        <!-- Additional Sections -->
+        <div class="additional-section" id="admissions">
+            <h2><i class="fas fa-user-graduate"></i> Admissions Process</h2>
+            <img src="/static/Image/adm_process.jpg" alt="Admissions" class="section-image">
+            <p>At DIT University, we follow a streamlined admissions process to ensure that you have a smooth experience. Our admissions team is dedicated to helping you every step of the way.</p>
+            <p>To apply, you need to submit an online application form, your academic transcripts, and letters of recommendation. Once your application is received, it will be reviewed by our admissions committee.</p>
+            
+            <form class="mini-form">
+                <label for="admissionName">Name:</label>
+                <input type="text" id="admissionName" name="admissionName" required>
+                <label for="admissionEmail">Email:</label>
+                <input type="email" id="admissionEmail" name="admissionEmail" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        <div class="additional-section">
+            <h2><i class="fas fa-user-check"></i> Student Support Services</h2>
+            <img src="/static/Image/support_services.jpg" alt="Support Services" class="section-image">
+            <p>DIT University offers various support services to assist our students in achieving their academic and personal goals. Our services include academic advising, mental health counseling, and career services.</p>
+            <p>We believe that every student should have access to the resources they need to succeed, and our team is here to provide guidance and support throughout your journey at DIT University.</p>
+            
+            <form class="mini-form">
+                <label for="supportName">Name:</label>
+                <input type="text" id="supportName" name="supportName" required>
+                <label for="supportEmail">Email:</label>
+                <input type="email" id="supportEmail" name="supportEmail" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        <div class="additional-section">
+            <h2><i class="fas fa-briefcase"></i> Career Opportunities</h2>
+            <img src="/static/Image/career_oppor.jpg" alt="Career Opportunities" class="section-image">
+            <p>Our graduates are equipped with the skills and knowledge needed to succeed in today’s competitive job market. We work closely with industry partners to provide students with internship opportunities and job placements.</p>
+            <p>Join our alumni network and connect with successful professionals in your field. At DIT University, we are committed to your future success.</p>
+            
+            <form class="mini-form">
+                <label for="careerName">Name:</label>
+                <input type="text" id="careerName" name="careerName" required>
+                <label for="careerEmail">Email:</label>
+                <input type="email" id="careerEmail" name="careerEmail" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+
+        <!-- Footer Section -->
+        <footer>
+            <h3>Ready to Join Us?</h3>
+            <p>Explore our courses and take the first step towards your future!</p>
+            <p>Contact us for more information.</p>
+        </footer>
+    </div>
+</body>
+</html>
